@@ -1,3 +1,4 @@
+// Importamos ElemntRef y Renderer2 para dibujar los canvas cuando se ejecute el componente
 import { Component, OnInit, Renderer2, ElementRef, Input } from '@angular/core';
 import { Chart, ChartType } from 'chart.js/auto';
 
@@ -7,7 +8,8 @@ import { Chart, ChartType } from 'chart.js/auto';
   styleUrls: ['./bar-chart.component.scss'],
 })
 export class BarChartComponent implements OnInit {
- 
+  
+  //Recogemos la variable de tabX en esta variable
   @Input() nameTab: string = "";
   // Atributo que almacena los datos del chart
   public chart!: Chart;
@@ -59,7 +61,7 @@ export class BarChartComponent implements OnInit {
 
     // Creamos la gráfica
     const canvas = this.renderer.createElement('canvas');
-    this.renderer.setAttribute(canvas, 'id', this.nameTab+'BarChart');
+    this.renderer.setAttribute(canvas, 'id', this.nameTab+'BarChart'); //Le añdimos al id el nombre del tabX que lo ejecuta 
 
     // Agregar el canvas al div
     this.renderer.appendChild(div, canvas);
